@@ -8,10 +8,9 @@
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
+#include <memory_due.h> 
 #include "hello.h"
-#include "foo.h"
-#include "memory_due.h" 
-#include "handlers.h"
+#include "sdecc_handlers.h"
 
 float x[ARRAY_SIZE];
 float y[ARRAY_SIZE];

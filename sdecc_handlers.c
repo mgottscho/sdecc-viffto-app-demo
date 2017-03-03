@@ -5,11 +5,11 @@
  * Handler definitions for dealing with memory DUEs
  */ 
 
-#include "handlers.h"
-#include "memory_due.h"
-#include "hello.h"
 #include <stdio.h> //sprintf()
 #include <string.h> //memcpy()
+#include <memory_due.h>
+#include "sdecc_handlers.h"
+#include "hello.h"
 
 //Define relevant global data structures that are needed for DUE handlers at runtime
 DECL_DUE_INFO(main, overall)

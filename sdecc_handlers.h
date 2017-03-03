@@ -6,7 +6,7 @@
 #ifndef HANDLERS_H
 #define HANDLERS_H
 
-#include "memory_due.h"
+#include <memory_due.h>
 
 //Declare relevant global data structures that are needed for DUE handlers at runtime (but extern -- they should be defined in handlers.c)
 DECL_DUE_INFO_EXTERN(main, overall)
