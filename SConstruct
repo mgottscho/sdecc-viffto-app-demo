@@ -4,8 +4,10 @@ import os
 
 env = Environment(ENV = {'PATH': os.environ['PATH']})
 env.Replace(CC = 'riscv64-unknown-elf-gcc')
-env.Append(CPPFLAGS = '-g')
-env.Append(LIBS = '-lm')
-env.Append(LINKFLAGS = '-T hello.ld')
-sources = ['hello.c', 'foo.c', 'handlers.c', 'memory_due.c', 'minipk.c']
+env.Append(CPPFLAGS = '-O3')
+env.Append(CPPPATH = os.environ['MWG_GIT_PATH'] + '/eccgrp-riscv-memory-due-userspace-handler')
+env.Append(LIBPATH = os.environ['MWG_GIT_PATH'] + '/eccgrp-riscv-memory-due-userspace-handler')
+env.Append(LIBS = ['m', 'sdecc'])
+env.Append(LINKFLAGS = '-T ' + os.environ['MWG_GIT_PATH'] + '/eccgrp-riscv-memory-due-userspace-handler/sdecc-riscv.ld')
+sources = ['hello.c', 'foo.c', 'handlers.c']
 env.Program(target = 'hello', source = sources)
