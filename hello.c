@@ -16,6 +16,7 @@ float x[ARRAY_SIZE];
 float y[ARRAY_SIZE];
 
 int main(int argc, char** argv) {
+    INJECT_DUE_DATA(0,1000000)
     unsigned long i;
     int injected_init, injected_compute = 0;
 
@@ -41,10 +42,10 @@ int main(int argc, char** argv) {
     //Computation
     for (i = 0; i < ARRAY_SIZE; i++) {
         //Semi-controlled data injection
-        if (!injected_compute && i % 10 == 0) {
+        /*if (!injected_compute && i % 10 == 0) {
             injected_compute = 1;
             INJECT_DUE_INSTRUCTION(1,10)
-        }
+        }*/
         y[i] = sin(x[i]);
     }
     END_DUE_RECOVERY(main, compute)
@@ -62,7 +63,7 @@ int main(int argc, char** argv) {
     }
     for (i = 0; i < ARRAY_SIZE; i++)
         printf("x[%d]: %.8f    y[%d]: %.8f\n", i, x[i], i, y[i]);
-    printf("Hello World!\n");
+    printf("SUCCESS\n");
     
     //Report DUE information from each region
     dump_dueinfo(&DUE_INFO(main, overall));
